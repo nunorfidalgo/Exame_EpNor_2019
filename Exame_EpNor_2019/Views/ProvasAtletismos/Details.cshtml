@@ -1,0 +1,58 @@
+﻿@model Exame_EpNor_2019.Models.ProvasAtletismo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ProvasAtletismo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Data)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Designacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Designacao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Local)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Local)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Distancia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Distancia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vencedor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vencedor)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProvasAtletismoId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

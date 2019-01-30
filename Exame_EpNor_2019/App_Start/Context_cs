@@ -1,0 +1,53 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using Exame_EpNor_2019.Models;
+
+namespace Exame_EpNor_2019.App_Start
+{
+    public sealed class Context
+    {
+        private static Context db = null;
+        static readonly object _lock = new object();
+        public List<Atleta> Atletas { get; set; }
+        public List<ProvasAtletismos> ProvasAtletimos { get; set; }
+        private Context()
+        {
+
+            Atletas = new List<Atleta>()
+            {
+                new Atleta() {Nome="Filipe Pereira"},
+                new Atleta() {Nome="José Manuel Fonseca"},
+                new Atleta() {Nome="Gonçalo Antunes Pires"},
+                new Atleta() {Nome="Filipe Cunha"},
+            };
+
+            ProvasAtletimos = new List<ProvasAtletismos>()
+            {
+                new ProvasAtletismos() { Data = new DateTime(2019, 01, 06), Designacao = "Corrida dos Reis", Local = "Moita", Distancia = 8, Vencedor = Atletas.ElementAt(0).ToString() },
+                new ProvasAtletismos() { Data = new DateTime(2019, 01, 14), Designacao = "Trilhos de Lousã", Local = "Lousã-Loures", Distancia = 20, Vencedor = Atletas.ElementAt(1).ToString() + "Vencedor da prova" },
+                new ProvasAtletismos() { Data = new DateTime(2019, 01, 20), Designacao = "1/2 Maratona Manuela Machado", Local = "Viana do Castelo", Distancia = 21, Vencedor = Atletas.ElementAt(0).ToString() },
+                new ProvasAtletismos() { Data = new DateTime(2019, 01, 27), Designacao = "Louzantrail", Local = "Lousã", Distancia = 43, Vencedor = Atletas.ElementAt(0).ToString() }
+            };
+        }
+
+        public static Context Db
+        {
+            get
+            {
+                lock (_lock)
+                {
+                    if (db == null)
+                    {
+                        db = new Context();
+                    }
+                    return db;
+                }
+            }
+        }
+    }
+
+
+
+}

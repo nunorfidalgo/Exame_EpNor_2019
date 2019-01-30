@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Exame_EpNor_2019.Models.ProvasAtletismo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Provas Atletismo</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+    |
+    @Html.ActionLink("Todos", "Create")
+    |
+    @Html.ActionLink("Por Decorrer", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Data)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Designacao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Local)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Distancia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Vencedor)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Designacao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Local)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Distancia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vencedor)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ProvasAtletismoId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ProvasAtletismoId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ProvasAtletismoId })
+            </td>
+        </tr>
+    }
+
+</table>
